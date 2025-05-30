@@ -28,12 +28,13 @@ html {
 
 /* Header styling */
 header {
-  background-color: rgb(204, 204, 255);
-  color: black;
   display: flex;
+  align-items: center;
   padding-left: 1rem;
   padding-right: 1rem;
   margin: 0;
+  background-color: rgb(204, 204, 255);
+  color: black;
 }
 
 /* Main styling */
