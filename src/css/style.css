@@ -37,10 +37,23 @@ header {
   color: black;
 }
 
+.site-title {
+  font-size: 1.3em;
+}
+
+header > nav > a {
+  display: block;
+  float: right;
+  padding-left: 15px;
+}
+
 /* Main styling */
 main {
   margin: 1rem;
 }
+
+/* Hero styling */
+
 
 /* Footer styling */
 footer {
