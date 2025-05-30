@@ -3,96 +3,105 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>[Park Name]</title>
+    <title>Steam Newsboard</title>
     <link rel="stylesheet" href="css/style.css" />
     <script type="module" src="js/main.js"></script>
   </head>
   <body>
-    <p class="disclaimer">
-      This is not a real NPS website. It is an educational exercise. If you
-      landed here by accident, to find the real website visit
-      <a href="parkUrl">[park name]</a>
-    </p>
     <div class="skip-links" aria-label="short-cut links" role="navigation">
       <ul>
-        <li>
-          <a
-            href="#global-nav-toggle"
-            aria-label="Skip to global NPS navigation"
-            >Skip to global NPS navigation</a
-          >
-        </li>
-        <li>
-          <a href="#local-nav" aria-label="Skip to this park navigation"
-            >Skip to this park navigation</a
-          >
-        </li>
+        <!-- Skip links here, kept default from NPS, should be hidden by default -->
         <li>
           <a href="#main" aria-label="Skip to the main content"
             >Skip to the main content</a
           >
         </li>
-        <li>
-          <a
-            href="#park-footer"
-            aria-label="Skip to this park information section"
-            >Skip to this park information section</a
-          >
-        </li>
       </ul>
     </div>
     <header>
-      <section class="global-header">
-        <a href="index.html" class="site-title"
-          ><span class="logo" role="presentation"></span>
-          <span>National Park Service</span></a
-        >
-        <div class="global-header__right">
-          <a class="search-icon" href="#park-footer">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#search"></use>
-            </svg>
-            <span class="visually-hidden">Search</span>
-          </a>
-          <button id="global-nav-toggle">
-            <svg class="icon">
-              <use xlink:href="/images/sprite.symbol.svg#menu"></use>
-            </svg>
-            <span class="visually-hidden">Open</span> Menu
-          </button>
-        </div>
-        <nav class="global-nav">
-          <h2 class="global-nav__section-heading">Explore this Park</h2>
-          <ul class="global-nav__list">
-            <li>
-              <div class="global-nav__split-button">
-                <a href="#">Plan Your Visit</a>
-                <button class="global-nav__split-button__toggle">
-                  <span class="visually-hidden"
-                    >Toggle submenu for Plan Your Visit</span
-                  >
-                  <svg class="icon" role="presentation" focusable="false">
-                    <use xlink:href="/images/sprite.symbol.svg#arrow"></use>
-                  </svg>
-                </button>
-              </div>
-            </li>
-          </ul>
-        </nav>
-      </section>
-      <section id="park-header">
-        <a href="#">
-          <span>Info</span>
-          <svg class="icon" role="presentation" focusable="false">
-            <use xlink:href="/images/sprite.symbol.svg#info"></use>
-          </svg>
-        </a>
-        <svg class="icon" role="presentation" focusable="false">
-          <use xlink:href="/images/sprite.symbol.svg#alert"></use>
-        </svg>
-      </section>
+      <!-- Top Bar (logo/name, navigation) -->
+      <h1>SteamNewsboard</h1>
+      <nav> <!-- Main Navigation -->
+        <a>Find Games</a>
+        <a>Bookmarks</a>
+        <a>About</a>
+      </nav>
     </header>
-    <main id="main"></main>
-    <footer id="park-footer"></footer>
+    <main id="main">
+      <section id="hero"> <!-- Hero -->
+        <h2>Your personal games newsletter</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Sed dapibus lacus ac semper varius. Etiam bibendum, lectus quis tincidunt ultricies,
+          leo augue condimentum elit, non aliquam metus felis vitae nibh.</p>
+        <button>Find Games</button>
+        <button>About SteamNewsboard</button>
+      </section>
+      <section class="game-news"> <!-- Container for all game news -->
+        <h3>Recent News for <strong>GAME NAME HERE</strong></h3>
+        <div class="game-news-holder"> <!-- Container for news -->
+          <div class="game-news-card"> <!-- Individual news card -->
+            <img src="#"> <!-- Would have image pulled from news from the game, JS -->
+            <h4>News 1 Title</h4>
+            <p>NEWS CONTENT HERE.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed dapibus lacus ac semper varius.</p>
+            <a href="#">Read more...</a> <!-- Link to full news page, JS -->
+          </div>
+          <div class="game-news-card"> <!-- Individual news card -->
+            <img src="#"> <!-- Would have image pulled from news from the game, JS -->
+            <h4>News 2 Title</h4>
+            <p>NEWS CONTENT HERE.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed dapibus lacus ac semper varius.</p>
+            <a href="#">Read more...</a> <!-- Link to full news page, JS -->
+          </div>
+          <div class="game-news-card"> <!-- Individual news card -->
+            <img src="#"> <!-- Would have image pulled from news from the game, JS -->
+            <h4>News 3 Title</h4>
+            <p>NEWS CONTENT HERE.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed dapibus lacus ac semper varius.</p>
+            <a href="#">Read more...</a> <!-- Link to full news page, JS -->
+          </div>
+        </div>
+        <div class="game-news-holder"> <!-- Container for news -->
+          <div class="game-news-card"> <!-- Individual news card -->
+            <img src="#"> <!-- Would have image pulled from news from the game, JS -->
+            <h4>News 1 Title</h4>
+            <p>NEWS CONTENT HERE.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed dapibus lacus ac semper varius.</p>
+            <a href="#">Read more...</a> <!-- Link to full news page, JS -->
+          </div>
+          <div class="game-news-card"> <!-- Individual news card -->
+            <img src="#"> <!-- Would have image pulled from news from the game, JS -->
+            <h4>News 2 Title</h4>
+            <p>NEWS CONTENT HERE.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed dapibus lacus ac semper varius.</p>
+            <a href="#">Read more...</a> <!-- Link to full news page, JS -->
+          </div>
+          <div class="game-news-card"> <!-- Individual news card -->
+            <img src="#"> <!-- Would have image pulled from news from the game, JS -->
+            <h4>News 3 Title</h4>
+            <p>NEWS CONTENT HERE.
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              Sed dapibus lacus ac semper varius.</p>
+            <a href="#">Read more...</a> <!-- Link to full news page, JS -->
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <!-- Bottom bar -->
+       <img src="#"> <!-- Will be logo? -->
+       <h5>SteamNewsboard<br>Legal information<br>API declaration<br>Other important stuff and what not<br></h5> <!-- Not sure if this should be a heading or a list of stuff; optimally, it wouldn't be links, but just text about the site and legal junk we may need to include -->
+       <ul> <!-- List for footer links contents -->
+        <li><a href="#">Return to Top</a></li>
+        <li><a href="#">Game Finder</a></li>
+        <li><a href="#">Bookmarks</a></li>
+        <li><a href="#">About</a></li>
+       </ul>
+    </footer>
   </body>
 </html>
