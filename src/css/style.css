@@ -35,8 +35,8 @@ header {
   padding-left: 1rem;
   padding-right: 1rem;
   margin: 0;
-  background-color: rgb(59, 59, 59);
-  color: rgb(255, 255, 255);
+  background-color: rgb(138, 144, 255);
+  color: rgb(0, 0, 0);
   font-family: Verdana, "Geneva", Tahoma, sans-serif;
 }
 
@@ -58,8 +58,8 @@ main {
 /* Footer styling */
 footer {
   padding: 1rem;
-  background-color: rgb(59, 59, 59);
-  color: rgb(255, 255, 255);
+  background-color: rgb(138, 144, 255);
+  color: rgb(0, 0, 0);
 }
 
 footer > ul {
