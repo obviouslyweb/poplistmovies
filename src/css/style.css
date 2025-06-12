@@ -73,7 +73,6 @@ h3 {
 /* Game News Grid */
 .game-news-holder {
   display: flex;
-  flex-wrap: wrap;
   gap: 2rem;
 }
 
@@ -131,6 +130,7 @@ footer {
 @media (max-width: 900px) {
   .game-news-card {
     width: calc(50% - 1rem);
+    display: block;
   }
 
   #hero {
