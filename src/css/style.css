@@ -173,13 +173,30 @@ h3 {
 footer {
   display: flex;
   justify-content: space-between;
+  gap: 10px;
   margin-top: 2rem;
-  padding-top: 2rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
   background-color:#333;
   margin-left: 40px;
   margin-right: 40px;
   border-top-left-radius: 15px;
   border-top-right-radius: 15px;
+}
+
+.footer-left {
+  display: flex;
+  margin-left: 20px;
+  gap: 10px;
+  min-width: 100vw;
+}
+
+.footer-right {
+  
+}
+
+footer h5 {
+  color: white;
 }
 
 /* Responsive Design */
@@ -202,6 +219,10 @@ footer {
   footer {
     flex-direction: column;
     gap: 1rem;
+  }
+
+  #hero img {
+    display: none;
   }
 }
 
