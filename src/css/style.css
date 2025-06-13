@@ -115,6 +115,10 @@ h3 {
   margin-bottom: 1rem;
 }
 
+.game-news {
+  margin: 40px;
+}
+
 /* Game News Grid */
 .game-news-holder {
   display: flex;
