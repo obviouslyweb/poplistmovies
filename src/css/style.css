@@ -19,16 +19,15 @@ body {
 
 /* Skip link for accessibility */
 .skip-link {
-  display: none;
-  left: -9999px;
-  top: -9999px;
+  position: absolute;
+  left: -10000px;
+  top: auto;
   width: 1px;
   height: 1px;
   overflow: hidden;
 }
 
 .skip-link:focus {
-  display: block;
   position: static;
   width: auto;
   height: auto;
