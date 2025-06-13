@@ -14,20 +14,19 @@ body {
 
 /* Layout container */
 .container {
-  max-width: 1200px;
   margin: 0 auto;
-  padding: 2rem;
 }
 
 /* Skip link for accessibility */
 .skip-link {
   position: absolute;
   left: -999px;
-  top: auto;
+  top: -9999px;
   width: 1px;
   height: 1px;
   overflow: hidden;
 }
+
 .skip-link:focus {
   position: static;
   width: auto;
@@ -40,6 +39,25 @@ header {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 2rem;
+  padding: 5px 10px 5px 10px;
+  background-color:#333;
+  color: white;
+}
+
+header a:link, header a:visited {
+  color: white;
+  padding: 5px 10px 5px 10px;
+  border-radius: 3px;
+  text-decoration: none;
+  border: 1px solid white;
+}
+
+header nav {
+  margin-right: 25px;
+}
+
+h1 {
+  padding-left: 25px;
 }
 
 .site-nav {
@@ -49,6 +67,7 @@ header {
 
 /* Hero section */
 #hero {
+  margin: 40px;
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
@@ -62,6 +81,16 @@ header {
 #hero p {
   font-size: 1rem;
   color: #444;
+}
+
+#hero button {
+  background-color: #cdcdcd;
+  min-height: 50px;
+  color: whites;
+  border: 2px solid rgb(182, 182, 255);
+  border-radius: 5px;
+  font-size: 1.4em;
+  width: 100%;
 }
 
 /* Section Titles */
