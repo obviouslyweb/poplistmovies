@@ -1,0 +1,126 @@
+/* Hero section */
+#hero {
+  margin-left: 40px;
+  margin-right: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+#hero h2 {
+  font-size: 2rem;
+}
+
+#hero p {
+  font-size: 1rem;
+  color: #444;
+  grid-column: 1/1;
+}
+
+#hero button {
+  background-color: #cdcdcd;
+  min-height: 50px;
+  color: whites;
+  border: 2px solid rgb(182, 182, 255);
+  border-radius: 5px;
+  font-size: 1.4em;
+  margin-top: -15px;
+  width: 100%;
+  grid-column: 1/1;
+}
+
+#hero button:hover {
+  font-weight: bold;
+}
+
+#hero img {
+  grid-column: 2/2;
+  width: 100%;
+  height: 300px;
+  grid-row: 1/5;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+/* Section Titles */
+h3 {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.game-news {
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+/* Game News Grid */
+.game-news-holder {
+  display: flex;
+  gap: 2rem;
+}
+
+/* News Card */
+.game-news-card {
+  background-color: #333;
+  color: white;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+  width: calc(33.333% - 1.33rem);
+  display: flex;
+  flex-direction: column;
+}
+
+.game-news-card img {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 0.75rem;
+  border-radius: 6px;
+}
+
+.game-news-card h4 {
+  font-size: 1.1rem;
+  margin: 0.5rem 0;
+}
+
+.game-news-card p {
+  font-size: 0.9rem;
+  color: #ddd;
+  flex-grow: 1;
+}
+
+.game-news-card a {
+  color: #9db7ff;
+  text-decoration: none;
+  font-weight: bold;
+  margin-top: 0.5rem;
+}
+.game-news-card a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+  .game-news-card {
+    width: calc(50% - 1rem);
+    display: block;
+  }
+
+  #hero {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  #hero img {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .game-news-card {
+    width: 100%;
+  }
+}
