@@ -1,18 +1,72 @@
-/* Basic Reset */
-* {
+/* src/css/partials/core.css */
+
+/* 1. Design tokens */
+:root {
+  --color-bg:       #f8f9fa;
+  --color-text:     #333333;
+  --color-accent:   #e50914;
+  --font-sans:      'Segoe UI', Arial, sans-serif;
+  --spacing:        1rem;
+  --container-max:  1200px;
+  --radius:         4px;
+  --transition:     0.2s ease-in-out;
+}
+
+/* 2. Reset */
+*, *::before, *::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+/* 3. Base typography */
 body {
-  font-family: 'Segoe UI', sans-serif;
-  line-height: 1.6;
-  background-color: #f8f9fa;
-  color: #333;
+  font-family:   var(--font-sans);
+  line-height:   1.6;
+  background:    var(--color-bg);
+  color:         var(--color-text);
 }
 
-/* Layout container */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-bottom: var(--spacing);
+}
+
+p {
+  margin-bottom: var(--spacing);
+}
+
+/* 4. Links & buttons */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+a:hover {
+  text-decoration: underline;
+}
+
+button {
+  font: inherit;
+  background: var(--color-accent);
+  color: #fff;
+  border: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius);
+  cursor: pointer;
+  transition: opacity var(--transition), background var(--transition);
+}
+button:hover:not(:disabled) {
+  opacity: 0.9;
+}
+button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* 5. Layout container */
 .container {
+  max-width: var(--container-max);
   margin: 0 auto;
+  padding: 0 var(--spacing);
 }

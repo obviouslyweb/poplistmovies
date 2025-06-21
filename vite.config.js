@@ -1,19 +1,21 @@
-import { dirname, resolve } from "path";
-import { defineConfig } from "vite";
-import { fileURLToPath } from "url";
-
-const __dirname = dirname(fileURLToPath(import.meta.url));
+// vite.config.js
+import { defineConfig } from 'vite'
+import { fileURLToPath, URL } from 'url'
 
 export default defineConfig({
-  root: "src/",
+  // default root is your project folder (where index.html now lives)
+  // publicDir defaults to 'public'
 
   build: {
-    outDir: "../dist",
+    // output to dist (the default)
+    // outDir: 'dist',
+
     rollupOptions: {
       input: {
-        main: resolve(__dirname, "src/index.html"),
-        about: resolve(__dirname, 'src/about.html')
+        // Tell Rollup/Vite about both entry points
+        main: fileURLToPath(new URL('./index.html', import.meta.url)),
+        about: fileURLToPath(new URL('./about.html', import.meta.url))
       }
     }
   }
-});
+})

@@ -1,0 +1,71 @@
+/* Rating dropdown on watchlist cards */
+.rating-label {
+  display: block;
+  margin-bottom: var(--spacing);
+  margin: var(--spacing) var(--spacing) 0;
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.movie-card .remove-btn {
+  margin-top: var(--spacing);
+}
+
+.rating-select {
+  margin-left: 0.5rem;
+  padding: 0.2rem 0.4rem;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+  background: #fff;
+  cursor: pointer;
+  transition: border-color var(--transition);
+}
+
+.rating-select:hover,
+.rating-select:focus {
+  border-color: var(--color-accent);
+}
+
+.autocomplete {
+  position: relative;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  background: white;
+  border: 1px solid #ccc;
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 10;
+}
+
+.suggestions li {
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.suggestions li:hover {
+  background: var(--color-accent);
+  color: white;
+}
+
+.movie-card .details-container {
+  background: #fdfdfd;
+  border-top: 1px solid #eee;
+  padding: 0.75rem var(--spacing);
+  font-size: 0.9rem;
+  color: var(--color-text);
+}
+
+.toggle-details-btn {
+  margin: var(--spacing) var(--spacing) 0;
+  background: none;
+  color: var(--color-accent);
+}
