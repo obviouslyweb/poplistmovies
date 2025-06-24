@@ -7,15 +7,15 @@ const suggestionsList    = document.getElementById('suggestions');
 const resultsContainer   = document.getElementById('movies-container');
 const watchlistContainer = document.getElementById('watchlist-container');
 
-// 1. Load or initialize the watchlist
+// Load or initialize watchlist
 let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
-// 2. Helper to persist the watchlist
+// Persist helper
 function saveWatchlist() {
   localStorage.setItem('watchlist', JSON.stringify(watchlist));
 }
 
-// 3. Fetch full movie details from OMDb
+// Fetch full movie details
 async function fetchMovieDetails(imdbID) {
   const res  = await fetch(
     `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}&plot=short`
@@ -24,7 +24,7 @@ async function fetchMovieDetails(imdbID) {
   return data.Response === 'True' ? data : null;
 }
 
-// 4. Render the watchlist (with rating & remove)
+// Render your watchlist
 function renderWatchlist() {
   watchlistContainer.innerHTML = '';
   if (!watchlist.length) {
@@ -43,33 +43,28 @@ function renderWatchlist() {
       />
       <h3>${movie.Title}</h3>
       <p>${movie.Year}</p>
-
       <label class="rating-label">
         Rating:
         <select class="rating-select">
           <option value="">—</option>
           ${[1,2,3,4,5].map(n =>
-            `<option value="${n}" ${movie.rating === n ? 'selected' : ''}>
-              ${n} ★
-            </option>`
+            `<option value="${n}" ${movie.rating===n?'selected':''}>${n} ★</option>`
           ).join('')}
         </select>
       </label>
-
       <button class="remove-btn">Remove</button>
     `;
 
-    // Remove button handler
+    // Remove handler
     card.querySelector('.remove-btn').addEventListener('click', () => {
       watchlist = watchlist.filter(m => m.imdbID !== movie.imdbID);
       saveWatchlist();
       renderWatchlist();
     });
 
-    // Rating select handler
+    // Rating handler
     card.querySelector('.rating-select').addEventListener('change', e => {
-      const val = e.target.value;
-      movie.rating = val ? Number(val) : null;
+      movie.rating = e.target.value ? Number(e.target.value) : null;
       saveWatchlist();
     });
 
@@ -77,24 +72,21 @@ function renderWatchlist() {
   });
 }
 
-// 5. Build a search‐result card with “More Info” + “Add to Watchlist”
+// Build one search‐result card
 function createMovieCard(movie) {
   const card = document.createElement('article');
   card.className = 'movie-card';
 
-  // Static HTML
   card.innerHTML = `
     <img
-      src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
+      src="${movie.Poster!=='N/A'?movie.Poster:'/images/placeholder.png'}"
       alt="Poster for ${movie.Title}"
     />
     <h3>${movie.Title}</h3>
     <p>${movie.Year}</p>
-
-    <div class="details-container" style="display:none;">
+    <div class="details-container" style="display:none">
       <p><em>Loading details…</em></p>
     </div>
-
     <button class="toggle-details-btn">More Info</button>
     <button class="add-btn">
       ${watchlist.some(m => m.imdbID === movie.imdbID)
@@ -108,29 +100,25 @@ function createMovieCard(movie) {
   const addBtn     = card.querySelector('.add-btn');
   let loaded       = false;
 
-  // “More Info” toggle
+  // Toggle “More Info”
   toggleBtn.addEventListener('click', async () => {
     if (!loaded) {
       const info = await fetchMovieDetails(movie.imdbID);
-      if (info) {
-        detailsDiv.innerHTML = `
-          <p><strong>Rated:</strong> ${info.Rated}</p>
-          <p><strong>Director:</strong> ${info.Director}</p>
-          <p><strong>Actors:</strong> ${info.Actors}</p>
-        `;
-      } else {
-        detailsDiv.innerHTML = `<p>Details not available.</p>`;
-      }
+      detailsDiv.innerHTML = info
+        ? `<p><strong>Rated:</strong> ${info.Rated}</p>
+           <p><strong>Director:</strong> ${info.Director}</p>
+           <p><strong>Actors:</strong> ${info.Actors}</p>`
+        : `<p>Details not available.</p>`;
       loaded = true;
     }
-    const isHidden = detailsDiv.style.display === 'none';
-    detailsDiv.style.display = isHidden ? 'block' : 'none';
-    toggleBtn.textContent    = isHidden ? 'Hide Info' : 'More Info';
+    const showing = detailsDiv.style.display === 'block';
+    detailsDiv.style.display = showing ? 'none' : 'block';
+    toggleBtn.textContent    = showing ? 'More Info' : 'Hide Info';
   });
 
-  // “Add to Watchlist” handler
+  // **Simplified Add to Watchlist** (no text-check needed)
   addBtn.addEventListener('click', () => {
-    if (addBtn.textContent.startsWith('+')) {
+    if (!watchlist.some(m => m.imdbID === movie.imdbID)) {
       watchlist.push(movie);
       saveWatchlist();
       renderWatchlist();
@@ -141,7 +129,7 @@ function createMovieCard(movie) {
   return card;
 }
 
-// 6. Fetch OMDb search results and render them
+// Search function
 async function searchMovies(title) {
   resultsContainer.innerHTML = 'Loading…';
   try {
@@ -154,16 +142,13 @@ async function searchMovies(title) {
       return;
     }
     resultsContainer.innerHTML = '';
-    json.Search.forEach(movie => {
-      resultsContainer.append(createMovieCard(movie));
-    });
-  } catch (err) {
-    console.error(err);
+    json.Search.forEach(m => resultsContainer.append(createMovieCard(m)));
+  } catch {
     resultsContainer.textContent = 'Error fetching data.';
   }
 }
 
-// 7. Autocomplete suggestions (debounced)
+// Autocomplete suggestions (as before)
 let suggestTimeout;
 input.addEventListener('input', () => {
   const q = input.value.trim();
@@ -195,17 +180,15 @@ input.addEventListener('input', () => {
   }, 300);
 });
 
-// 8. Hide suggestions on blur (allow clicks)
 input.addEventListener('blur', () => {
-  setTimeout(() => { suggestionsList.innerHTML = ''; }, 200);
+  setTimeout(() => (suggestionsList.innerHTML = ''), 200);
 });
 
-// 9. Handle form submit
 form.addEventListener('submit', e => {
   e.preventDefault();
-  const query = input.value.trim();
-  if (query) searchMovies(query);
+  const q = input.value.trim();
+  if (q) searchMovies(q);
 });
 
-// 10. Initial render of watchlist
+// Initial watchlist render
 renderWatchlist();
