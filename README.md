@@ -12,15 +12,15 @@ The most current build of Poplist is deployed at (https://poplistmovies.netlify.
 
 The remaining work to be done for this project includes the following:
 
-[] Movie detail page (using URL parameters; for example https://example.com/page2.html?id=34; Send the id of 34 to the code running at page2.html)
-[] At least one detailed, validated form
-[] Local storage for persistence
-[X] Fetching data from an API or json file
-[] Drop-down menu
-[] CSS Animation
-[] Responsive design
-[] Good user experience (UX) and accessibility
-[] Use of modules for organization
+- [ ] Movie detail page (using URL parameters; for example https://example.com/page2.html?id=34; Send the id of 34 to the code running at page2.html)
+- [ ] At least one detailed, validated form
+- [ ] Local storage for persistence
+- [X] Fetching data from an API or json file
+- [ ] Drop-down menu
+- [ ] CSS Animation
+- [ ] Responsive design
+- [ ] Good user experience (UX) and accessibility
+- [ ] Use of modules for organization
 
 ## Team
 
