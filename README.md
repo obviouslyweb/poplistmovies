@@ -1,18 +1,27 @@
-# WDD 231 personal project
+# Poplist Movies
 
 ## Description
 
-Use this as a starting point to complete the WDD 231 personal activity. We will be pulling data from the National Parks API and building a website for the park of your choice with it.
+Poplist is an in-development website that allows you to find movies and add them to your watchlist!
 
-## Prerequisites
+## Site Link
 
-- You must have Node installed. visit https://byui-cit.github.io/learning-modules/modules/general/node-installation/ for instructions
+The most current build of Poplist is deployed at (https://poplistmovies.netlify.app/)[https://poplistmovies.netlify.app/].
 
-## Setup
+## To Do
 
-- `npm install`
-- `npm run start` starts up a local server and updates on any JS or CSS/SCSS changes.
+The remaining work to be done for this project includes the following:
 
-## Other commands
+[] Movie detail page (using URL parameters; for example https://example.com/page2.html?id=34; Send the id of 34 to the code running at page2.html)
+[] At least one detailed, validated form
+[] Local storage for persistence
+[X] Fetching data from an API or json file
+[] Drop-down menu
+[] CSS Animation
+[] Responsive design
+[] Good user experience (UX) and accessibility
+[] Use of modules for organization
 
-- `npm run build` to build final files when you are ready to turn in.
+## Team
+
+Developed by Joshua Macias and Connor Butterfield.
