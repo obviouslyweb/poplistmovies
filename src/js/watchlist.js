@@ -1,9 +1,6 @@
 // src/js/main.js
 
 const API_KEY            = import.meta.env.VITE_OMDB_API_KEY;
-const form               = document.getElementById('search-form');
-const input              = document.getElementById('search-input');
-const suggestionsList    = document.getElementById('suggestions');
 const resultsContainer   = document.getElementById('movies-container');
 const watchlistContainer = document.getElementById('watchlist-container');
 
