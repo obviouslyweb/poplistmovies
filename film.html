@@ -6,19 +6,23 @@
   <title>Home – Poplist</title>
   <link rel="stylesheet" href="/src/css/style.css" />
   <script type="module" src="/src/js/main.js" defer></script>
+  <script type="module" src="/src/js/header.js" defer></script>
 </head>
 <body>
   <div class="container">
     <header>
-      <a href="/" class="site-title-link">
+      <div id="header-flex">
+        <a href="/" class="site-title-link">
         <h1 class="site-title">Poplist</h1>
       </a>
       <button id="menuButton">Menu</button>
-      <nav class="site-nav" aria-label="Main navigation">
+      <nav class="site-nav">
         <a href="/">Search</a>
         <a href="watchlist">Watchlist</a>
         <a href="about">About</a>
       </nav>
+      </div>
+    <!-- NAV is moved here for block display in mobile for dropdown -->
     </header>
     <main id="main">
       <!-- Search form with custom autocomplete -->
