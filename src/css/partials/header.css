@@ -37,3 +37,29 @@ header {
   background: #fff;
   color: var(--color-text);
 }
+
+#menuButton {
+  display: none;
+}
+
+/* Mobile view */
+@media (max-width: 600px) {
+  #menuButton {
+    display: flex;
+    padding: 0.5rem 1rem;
+    border: 1px solid #fff;
+    border-radius: var(--radius);
+    background: none;
+    color: #fff;
+    transition: background var(--transition), color var(--transition);
+  }
+
+  #menuButton:hover {
+  background: #fff;
+  color: var(--color-text);
+  }
+
+  .site-nav {
+    display: none;
+  }
+}
