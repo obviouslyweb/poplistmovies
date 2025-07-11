@@ -13,6 +13,8 @@ The most current build of Poplist is deployed at (https://poplistmovies.netlify.
 The remaining work to be done for this project includes the following:
 
 - [ ] Movie detail page (using URL parameters; for example https://example.com/page2.html?id=34; Send the id of 34 to the code running at page2.html)
+- [ ] (Optional) Add default fallback image when no poster is available
+- [ ] (Optional) Filter movies based on rating, hide rated R posters by default
 - [ ] Detailed, validated form for finding films
 - [ ] Responsive design
 - [ ] Good user experience (UX) and accessibility
