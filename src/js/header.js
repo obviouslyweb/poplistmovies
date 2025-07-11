@@ -1,8 +1,8 @@
 const menuButton = document.querySelector("#menuButton");
+const menu = document.querySelector(".site-nav")
 
 function toggleMenu() {
     console.log("Click registered");
-    const menu = document.querySelector(".site-nav");
     if (menu.classList.contains("hide")) {
         menu.classList.remove("hide");
     } else {
@@ -11,8 +11,8 @@ function toggleMenu() {
 }
 
 function handleResize() {
-    const menu = document.querySelector(".menu");
-    if (window.innerWidth > 1000) {
+    console.log("Checking resize...")
+    if (window.innerWidth > 600) {
         menu.classList.remove("hide");
     } else {
         menu.classList.add("hide");

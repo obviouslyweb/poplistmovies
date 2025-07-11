@@ -51,15 +51,29 @@ header {
     border-radius: var(--radius);
     background: none;
     color: #fff;
+    margin-right: var(--spacing);
     transition: background var(--transition), color var(--transition);
   }
 
   #menuButton:hover {
-  background: #fff;
-  color: var(--color-text);
+    background: #fff;
+    color: var(--color-text);
   }
 
   .site-nav {
-    display: none;
+    display: grid;
   }
+
+  .site-nav a {
+    width: 100%;
+    padding: 0.5rem 1rem;
+    border: 1px solid #fff;
+    border-radius: var(--radius);
+    color: #fff;
+    transition: background var(--transition), color var(--transition);
+  }
+}
+
+.hide {
+  display: none;
 }
