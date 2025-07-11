@@ -1,10 +1,22 @@
-header {
+#header-flex {
   background: var(--color-text);
   color: #fff;
   padding: var(--spacing) 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
+
+header {
+  background: var(--color-text);
+  color: #fff;
+  padding: var(--spacing) 0;
+  align-items: center;
+  justify-content: space-between;
+}
+
+header nav {
+  padding-left: var(--spacing)
 }
 
 .site-title-link,

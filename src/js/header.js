@@ -1,23 +1,30 @@
 const menuButton = document.querySelector("#menuButton");
-const menu = document.querySelector(".site-nav")
+const nav = document.querySelector(".site-nav");
+const headerFlex = document.querySelector("#header-flex");
+const header = headerFlex.parentElement;
 
 function toggleMenu() {
     console.log("Click registered");
-    if (menu.classList.contains("hide")) {
-        menu.classList.remove("hide");
-    } else {
-        menu.classList.add("hide");
-    }
+    nav.classList.toggle("hide");
 }
 
 function handleResize() {
-    console.log("Checking resize...")
-    if (window.innerWidth > 600) {
-        menu.classList.remove("hide");
-    } else {
-        menu.classList.add("hide");
+    const isMobile = window.innerWidth <= 600;
+
+    console.log("Checking resize...");
+
+    if (isMobile && nav.parentElement === headerFlex) {
+        header.appendChild(nav);
+        nav.classList.add("hide");
+    }
+
+    if (!isMobile && nav.parentElement !== headerFlex) {
+        headerFlex.appendChild(nav);
+        nav.classList.remove("hide");
     }
 }
+
+handleResize();
 
 menuButton.addEventListener("click", toggleMenu);
 window.addEventListener("resize", handleResize);
