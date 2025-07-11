@@ -29,7 +29,6 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 600;
-  margin-bottom: var(--spacing);
 }
 
 p {
@@ -64,9 +63,9 @@ button:disabled {
   cursor: default;
 }
 
-/* 5. Layout container */
+/* Layout container */
 .container {
-  max-width: var(--container-max);
+  max-width: 100%;
   margin: 0 auto;
-  padding: 0 var(--spacing);
+  padding: 0;
 }

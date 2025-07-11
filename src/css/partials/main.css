@@ -21,21 +21,21 @@
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
-/* 2. Section headings */
+/* Section headings */
 .results-section h2,
 .watchlist-section h2 {
   margin-bottom: var(--spacing);
   font-size: 1.5rem;
 }
 
-/* 3. Grid of movie cards - increase min width */
+/* Grid of movie cards - increase min width */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: var(--spacing);
 }
 
-/* 4. Movie card styling */
+/* Movie card styling */
 .movie-card {
   background: #fff;
   border-radius: var(--radius);
@@ -81,13 +81,13 @@
   align-self: flex-start;
 }
 
-/* 5. Watchlist centering */
+/* Watchlist centering */
 .watchlist-section .movie-card {
   max-width: 200px;
   margin: 0 auto;
 }
 
-/* 6. Mobile tweaks */
+/* Mobile view */
 @media (max-width: 600px) {
   .search-section form {
     flex-direction: column;
