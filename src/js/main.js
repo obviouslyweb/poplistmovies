@@ -56,7 +56,6 @@ function renderWatchlist() {
     </button>
   `;
 
-
     // Remove handler
     card.querySelector('.remove-btn').addEventListener('click', () => {
       watchlist = watchlist.filter(m => m.imdbID !== movie.imdbID);
