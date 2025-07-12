@@ -28,7 +28,7 @@
   font-size: 1.5rem;
 }
 
-/* Grid of movie cards - increase min width */
+/* Grid of movie cards */
 .movies-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -43,7 +43,7 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  min-height: 400px;            /* allow space for details and buttons */
+  min-height: 400px;
   padding-bottom: var(--spacing);
 }
 .movie-card img {

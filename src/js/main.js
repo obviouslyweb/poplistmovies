@@ -80,8 +80,9 @@ function createMovieCard(movie) {
 
   card.innerHTML = `
     <img
-      src="${movie.Poster!=='N/A'?movie.Poster:'/images/placeholder.png'}"
+      src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
       alt="Poster for ${movie.Title}"
+      onerror="this.onerror=null;this.src='/images/placeholder.png';"
     />
     <h3>${movie.Title}</h3>
     <p>${movie.Year}</p>

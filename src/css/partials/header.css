@@ -7,6 +7,10 @@
   justify-content: space-between;
 }
 
+#logo {
+ max-height: 50px;
+}
+
 header {
   background: var(--color-text);
   color: #fff;
@@ -21,13 +25,14 @@ header nav {
 
 .site-title-link,
 .site-title-link h1 {
+  padding-left: var(--spacing);
+  display: flex;
   color: #fff;
   text-decoration: none;
 }
 
 .site-title {
   font-size: 2rem;
-  margin-left: var(--spacing);
 }
 
 .site-nav {
