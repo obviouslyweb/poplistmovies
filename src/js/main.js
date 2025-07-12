@@ -24,8 +24,10 @@ async function fetchMovieDetails(imdbID) {
   return data.Response === 'True' ? data : null;
 }
 
-// Render your watchlist
+// Render a simplified watchlist (no remove or rating options)
 function renderWatchlist() {
+  if (!watchlistContainer) return;
+
   watchlistContainer.innerHTML = '';
   if (!watchlist.length) {
     watchlistContainer.textContent = 'Your watchlist is empty.';
@@ -37,37 +39,16 @@ function renderWatchlist() {
     card.className = 'movie-card';
 
     card.innerHTML = `
-    <a href="/details.html?id=${movie.imdbID}">
-      <img
-        src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
-        alt="Poster for ${movie.Title}"
-      />
-    </a>
-    <h3>${movie.Title}</h3>
-    <p>${movie.Year}</p>
-    <div class="details-container" style="display:none">
-      <p><em>Loading details…</em></p>
-    </div>
-    <button class="toggle-details-btn">More Info</button>
-    <button class="add-btn">
-      ${watchlist.some(m => m.imdbID === movie.imdbID)
-        ? '✓ In Watchlist'
-        : '+ Add to Watchlist'}
-    </button>
-  `;
-
-    // Remove handler
-    card.querySelector('.remove-btn').addEventListener('click', () => {
-      watchlist = watchlist.filter(m => m.imdbID !== movie.imdbID);
-      saveWatchlist();
-      renderWatchlist();
-    });
-
-    // Rating handler
-    card.querySelector('.rating-select').addEventListener('change', e => {
-      movie.rating = e.target.value ? Number(e.target.value) : null;
-      saveWatchlist();
-    });
+      <a href="/details.html?id=${movie.imdbID}">
+        <img
+          src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
+          alt="Poster for ${movie.Title}"
+          onerror="this.onerror=null;this.src='/images/placeholder.png';"
+        />
+      </a>
+      <h3>${movie.Title}</h3>
+      <p>${movie.Year}</p>
+    `;
 
     watchlistContainer.append(card);
   });
@@ -118,12 +99,12 @@ function createMovieCard(movie) {
     toggleBtn.textContent    = showing ? 'More Info' : 'Hide Info';
   });
 
-  // **Simplified Add to Watchlist** (no text-check needed)
+  // Add to Watchlist
   addBtn.addEventListener('click', () => {
     if (!watchlist.some(m => m.imdbID === movie.imdbID)) {
       watchlist.push(movie);
       saveWatchlist();
-      renderWatchlist();
+      renderWatchlist(); // Updates preview if visible
       addBtn.textContent = '✓ In Watchlist';
     }
   });
@@ -150,7 +131,7 @@ async function searchMovies(title) {
   }
 }
 
-// Autocomplete suggestions (as before)
+// Autocomplete suggestions
 let suggestTimeout;
 input.addEventListener('input', () => {
   const q = input.value.trim();
@@ -192,5 +173,6 @@ form.addEventListener('submit', e => {
   if (q) searchMovies(q);
 });
 
-// Initial watchlist render
-renderWatchlist();
+if (watchlistContainer) { // Only render watchlist if the container exists
+  renderWatchlist();
+}

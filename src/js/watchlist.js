@@ -34,23 +34,23 @@ function renderWatchlist() {
     card.className = 'movie-card';
 
     card.innerHTML = `
-      <img
-        src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
-        alt="Poster for ${movie.Title}"
-      />
-      <h3>${movie.Title}</h3>
-      <p>${movie.Year}</p>
-      <label class="rating-label">
-        Rating:
-        <select class="rating-select">
-          <option value="">—</option>
-          ${[1,2,3,4,5].map(n =>
-            `<option value="${n}" ${movie.rating===n?'selected':''}>${n} ★</option>`
-          ).join('')}
-        </select>
-      </label>
-      <button class="remove-btn">Remove</button>
-    `;
+    <img
+      src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
+      alt="Poster for ${movie.Title}"
+      onerror="this.onerror=null;this.src='/images/placeholder.png';"
+    />
+    <h3>${movie.Title}</h3>
+    <p>${movie.Year}</p>
+    <div class="details-container" style="display:none">
+      <p><em>Loading details…</em></p>
+    </div>
+    <button class="toggle-details-btn">More Info</button>
+    <button class="add-btn">
+      ${watchlist.some(m => m.imdbID === movie.imdbID)
+        ? '✓ In Watchlist'
+        : '+ Add to Watchlist'}
+    </button>
+  `;
 
     // Remove handler
     card.querySelector('.remove-btn').addEventListener('click', () => {

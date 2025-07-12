@@ -27,3 +27,4 @@ The remaining work to be done for this project includes the following:
 ## Team
 
 Developed by Joshua Macias and Connor Butterfield.
+Poplist Logo © Connor Butterfield 2025, all rights reserved.
