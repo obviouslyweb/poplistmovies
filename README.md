@@ -17,7 +17,7 @@ The remaining work to be done for this project includes the following:
 - [ ] Responsive design
 - [ ] Good user experience (UX) and accessibility
 - [ ] CSS Animation (for finding films on main film search page)
-- [ ] (Optional) Add default fallback image when no poster is available
+- [X] Add default fallback image when no poster is available
 - [X] Drop-down menu (mobile)
 - [X] Add separate watchlist page that displays saved watchlist from localstorage
 - [X] Store watchlist through local storage for persistence
