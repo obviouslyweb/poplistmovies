@@ -1,13 +1,13 @@
+import { placeholderImage } from './utils.js';
+
 const API_KEY = import.meta.env.VITE_OMDB_API_KEY;
 
 const params = new URLSearchParams(window.location.search);
 const imdbID = params.get('id');
 
 const titleHeading = document.querySelector('#movie-details h2');
-const detailLeft   = document.getElementById('detail-left');
-const detailRight  = document.getElementById('detail-right');
-
-import placeholderImg from '/images/placeholder.png'; // Necessary due to Vite for placeholder image
+const detailLeft = document.getElementById('detail-left');
+const detailRight = document.getElementById('detail-right');
 
 if (!imdbID) {
   titleHeading.textContent = 'Movie not found';
@@ -18,7 +18,9 @@ if (!imdbID) {
 
 async function loadMovieDetails(id) {
   try {
-    const res  = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}&plot=full`);
+    const res = await fetch(
+      `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}&plot=full`
+    );
     const data = await res.json();
 
     if (data.Response === 'False') {
@@ -31,9 +33,9 @@ async function loadMovieDetails(id) {
 
     detailLeft.innerHTML = `
       <img
-        src="${data.Poster !== 'N/A' ? data.Poster : placeholderImg}"
+        src="${data.Poster !== 'N/A' ? data.Poster : placeholderImage}"
         alt="Poster for ${data.Title}"
-        onerror="this.onerror=null;this.src=${placeholderImg};"
+        onerror="this.onerror=null;this.src='${placeholderImage}';"
       />
     `;
 
