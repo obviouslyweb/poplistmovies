@@ -3,9 +3,9 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Watchlist – Poplist</title>
+  <title>Home – Poplist</title>
   <link rel="stylesheet" href="/src/css/style.css" />
-  <script type="module" src="/src/js/watchlist.js" defer></script>
+  <script type="module" src="/src/js/main.js" defer></script>
   <script type="module" src="/src/js/header.js" defer></script>
 </head>
 <body>
@@ -26,6 +26,29 @@
     <!-- NAV is moved here for block display in mobile for dropdown -->
     </header>
     <main id="main">
+      <section class="search-section autocomplete">
+        <h2>Find a Movie</h2>
+        <form id="search-form">
+          <input
+            type="text"
+            id="search-input"
+            placeholder="Search by title…"
+            aria-label="Search movies by title"
+            autocomplete="off"
+          />
+          <ul id="suggestions" class="suggestions"></ul>
+          <button type="submit">Search</button>
+        </form>
+      </section>
+
+      <!-- Where results will appear -->
+      <section class="results-section">
+        <h2>Search Results</h2>
+        <div id="movies-container" class="movies-grid">
+          <!-- JS will inject movie cards here -->
+        </div>
+      </section>
+
       <!-- User’s saved watchlist -->
       <section id="watchlist" class="watchlist-section">
         <h2>Your Watchlist</h2>
@@ -36,7 +59,7 @@
     </main>
 
     <footer>
-      <p>© 2025 MovieBoard. All rights reserved.</p>
+      <p>© Poplist 2025. All rights reserved.</p>
     </footer>
   </div>
 </body>
