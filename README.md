@@ -12,12 +12,13 @@ The most current build of Poplist is deployed at (https://poplistmovies.netlify.
 
 The remaining work to be done for this project includes the following:
 
-- [ ] Movie detail page (using URL parameters; for example https://example.com/page2.html?id=34; Send the id of 34 to the code running at page2.html)
+- [ ] Finish styling details page (URL parameters)
+- [ ] Fill out About page
 - [ ] Detailed, validated form for finding films (sort by rating?)
+- [ ] CSS Animation (for finding films on main film search page)
 - [ ] Responsive design
 - [ ] Good user experience (UX) and accessibility
-- [ ] CSS Animation (for finding films on main film search page)
-- [ ] Fill out About page
+- [X] Implement URL parameters for use with movie details
 - [X] Add default fallback image when no poster is available
 - [X] Drop-down menu (mobile)
 - [X] Add separate watchlist page that displays saved watchlist from localstorage
