@@ -5,6 +5,8 @@ const suggestionsList    = document.getElementById('suggestions');
 const resultsContainer   = document.getElementById('movies-container');
 const watchlistContainer = document.getElementById('watchlist-container');
 
+import placeholderImg from '/images/placeholder.png'; // Necessary due to Vite for placeholder image
+
 let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
 function saveWatchlist() {
@@ -35,9 +37,9 @@ function renderWatchlist() {
     card.innerHTML = `
       <a href="/details.html?id=${movie.imdbID}">
         <img
-          src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
+          src="${movie.Poster !== 'N/A' ? movie.Poster : placeholderImg}"
           alt="Poster for ${movie.Title}"
-          onerror="this.onerror=null;this.src='/images/placeholder.png';"
+          onerror="this.onerror=null;this.src=${placeholderImg};"
         />
       </a>
       <h3>${movie.Title}</h3>
@@ -54,9 +56,9 @@ function createMovieCard(movie) {
 
   card.innerHTML = `
     <img
-      src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
+      src="${movie.Poster !== 'N/A' ? movie.Poster : placeholderImg}"
       alt="Poster for ${movie.Title}"
-      onerror="this.onerror=null;this.src='/images/placeholder.png';"
+      onerror="this.onerror=null;this.src=${placeholderImg};"
     />
     <h3>${movie.Title}</h3>
     <p>${movie.Year}</p>
