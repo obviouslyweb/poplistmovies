@@ -28,10 +28,13 @@ function renderWatchlist() {
     card.className = 'movie-card';
 
     card.innerHTML = `
-      <img
-        src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
-        alt="Poster for ${movie.Title}"
-      />
+      <a href="/details.html?id=${movie.imdbID}">
+        <img
+          src="${movie.Poster !== 'N/A' ? movie.Poster : '/images/placeholder.png'}"
+          alt="Poster for ${movie.Title}"
+          onerror="this.onerror=null;this.src='/images/placeholder.png';"
+        />
+      </a>
       <h3>${movie.Title}</h3>
       <p>${movie.Year}</p>
       <label class="rating-label">

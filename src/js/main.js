@@ -1,5 +1,3 @@
-// src/js/main.js
-
 const API_KEY            = import.meta.env.VITE_OMDB_API_KEY;
 const form               = document.getElementById('search-form');
 const input              = document.getElementById('search-input');
@@ -7,15 +5,12 @@ const suggestionsList    = document.getElementById('suggestions');
 const resultsContainer   = document.getElementById('movies-container');
 const watchlistContainer = document.getElementById('watchlist-container');
 
-// Load or initialize watchlist
 let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
-// Persist helper
 function saveWatchlist() {
   localStorage.setItem('watchlist', JSON.stringify(watchlist));
 }
 
-// Fetch full movie details
 async function fetchMovieDetails(imdbID) {
   const res  = await fetch(
     `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}&plot=short`
@@ -24,7 +19,6 @@ async function fetchMovieDetails(imdbID) {
   return data.Response === 'True' ? data : null;
 }
 
-// Render a simplified watchlist (no remove or rating options)
 function renderWatchlist() {
   if (!watchlistContainer) return;
 
@@ -54,7 +48,6 @@ function renderWatchlist() {
   });
 }
 
-// Build one search‐result card
 function createMovieCard(movie) {
   const card = document.createElement('article');
   card.className = 'movie-card';
@@ -83,7 +76,6 @@ function createMovieCard(movie) {
   const addBtn     = card.querySelector('.add-btn');
   let loaded       = false;
 
-  // Toggle “More Info”
   toggleBtn.addEventListener('click', async () => {
     if (!loaded) {
       const info = await fetchMovieDetails(movie.imdbID);
@@ -99,12 +91,11 @@ function createMovieCard(movie) {
     toggleBtn.textContent    = showing ? 'More Info' : 'Hide Info';
   });
 
-  // Add to Watchlist
   addBtn.addEventListener('click', () => {
     if (!watchlist.some(m => m.imdbID === movie.imdbID)) {
       watchlist.push(movie);
       saveWatchlist();
-      renderWatchlist(); // Updates preview if visible
+      renderWatchlist();
       addBtn.textContent = '✓ In Watchlist';
     }
   });
@@ -112,7 +103,6 @@ function createMovieCard(movie) {
   return card;
 }
 
-// Search function
 async function searchMovies(title) {
   resultsContainer.innerHTML = 'Loading…';
   try {
@@ -131,7 +121,6 @@ async function searchMovies(title) {
   }
 }
 
-// Autocomplete suggestions
 let suggestTimeout;
 input.addEventListener('input', () => {
   const q = input.value.trim();
@@ -173,6 +162,6 @@ form.addEventListener('submit', e => {
   if (q) searchMovies(q);
 });
 
-if (watchlistContainer) { // Only render watchlist if the container exists
+if (watchlistContainer) {
   renderWatchlist();
 }
