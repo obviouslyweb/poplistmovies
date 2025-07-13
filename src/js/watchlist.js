@@ -1,18 +1,13 @@
-// src/js/main.js
-
 const API_KEY            = import.meta.env.VITE_OMDB_API_KEY;
 const resultsContainer   = document.getElementById('movies-container');
 const watchlistContainer = document.getElementById('watchlist-container');
 
-// Load or initialize watchlist
 let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
-// Persist helper
 function saveWatchlist() {
   localStorage.setItem('watchlist', JSON.stringify(watchlist));
 }
 
-// Fetch full movie details
 async function fetchMovieDetails(imdbID) {
   const res  = await fetch(
     `https://www.omdbapi.com/?apikey=${API_KEY}&i=${imdbID}&plot=short`
@@ -21,7 +16,6 @@ async function fetchMovieDetails(imdbID) {
   return data.Response === 'True' ? data : null;
 }
 
-// Render your watchlist
 function renderWatchlist() {
   watchlistContainer.innerHTML = '';
   if (!watchlist.length) {
@@ -52,14 +46,12 @@ function renderWatchlist() {
       <button class="remove-btn">Remove</button>
     `;
 
-    // Remove handler
     card.querySelector('.remove-btn').addEventListener('click', () => {
       watchlist = watchlist.filter(m => m.imdbID !== movie.imdbID);
       saveWatchlist();
       renderWatchlist();
     });
 
-    // Rating handler
     card.querySelector('.rating-select').addEventListener('change', e => {
       movie.rating = e.target.value ? Number(e.target.value) : null;
       saveWatchlist();
@@ -69,7 +61,6 @@ function renderWatchlist() {
   });
 }
 
-// Build one search‐result card
 function createMovieCard(movie) {
   const card = document.createElement('article');
   card.className = 'movie-card';
@@ -97,7 +88,6 @@ function createMovieCard(movie) {
   const addBtn     = card.querySelector('.add-btn');
   let loaded       = false;
 
-  // Toggle “More Info”
   toggleBtn.addEventListener('click', async () => {
     if (!loaded) {
       const info = await fetchMovieDetails(movie.imdbID);
@@ -113,7 +103,6 @@ function createMovieCard(movie) {
     toggleBtn.textContent    = showing ? 'More Info' : 'Hide Info';
   });
 
-  // **Simplified Add to Watchlist** (no text-check needed)
   addBtn.addEventListener('click', () => {
     if (!watchlist.some(m => m.imdbID === movie.imdbID)) {
       watchlist.push(movie);
@@ -126,7 +115,6 @@ function createMovieCard(movie) {
   return card;
 }
 
-// Search function
 async function searchMovies(title) {
   resultsContainer.innerHTML = 'Loading…';
   try {
@@ -145,5 +133,4 @@ async function searchMovies(title) {
   }
 }
 
-// Initial watchlist render
 renderWatchlist();
