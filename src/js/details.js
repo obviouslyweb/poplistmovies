@@ -7,6 +7,8 @@ const titleHeading = document.querySelector('#movie-details h2');
 const detailLeft   = document.getElementById('detail-left');
 const detailRight  = document.getElementById('detail-right');
 
+import placeholderImg from '/images/placeholder.png'; // Necessary due to Vite for placeholder image
+
 if (!imdbID) {
   titleHeading.textContent = 'Movie not found';
   detailRight.innerHTML = '<p>No movie ID was provided in the URL.</p>';
@@ -29,9 +31,9 @@ async function loadMovieDetails(id) {
 
     detailLeft.innerHTML = `
       <img
-        src="${data.Poster !== 'N/A' ? data.Poster : '/images/placeholder.png'}"
+        src="${data.Poster !== 'N/A' ? data.Poster : placeholderImg}"
         alt="Poster for ${data.Title}"
-        onerror="this.onerror=null;this.src='/images/placeholder.png';"
+        onerror="this.onerror=null;this.src=${placeholderImg};"
       />
     `;
 
