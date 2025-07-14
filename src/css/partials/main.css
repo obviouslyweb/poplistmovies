@@ -1,12 +1,12 @@
 /* src/css/partials/main.css */
 
-/* 1. Search form */
+/* Search form */
 .search-section {
   margin: var(--spacing) 0;
 }
 .search-section form {
   display: flex;
-  flex-wrap: wrap;       /* stack on small screens */
+  flex-wrap: wrap;
   gap: 0.5rem;
   margin-bottom: var(--spacing);
 }
@@ -67,12 +67,11 @@
   background: #fdfdfd;
   border-top: 1px solid #eee;
   padding: var(--spacing);
-  max-height: 120px;            /* cap height */
+  max-height: 120px;
   overflow-y: auto;
   margin-bottom: var(--spacing);
 }
 
-/* Buttons no longer full-width; separated and left-aligned */
 .movie-card button {
   width: auto;
   padding: 0.6rem 1.2rem;
@@ -86,6 +85,24 @@
   max-width: 200px;
   margin: 0 auto;
 }
+
+/* Footer balancing */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
 
 /* Mobile view */
 @media (max-width: 600px) {
