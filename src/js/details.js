@@ -50,8 +50,8 @@ async function loadMovieDetails(id) {
       <p><strong>Plot:</strong> ${data.Plot}</p>
       <p><strong>IMDb Rating:</strong> ${data.imdbRating}</p>
     `;
-  } catch (err) {
+  } catch {
     titleHeading.textContent = 'Error';
-    detailRight.innerHTML = `<p>There was a problem fetching the movie details.</p>`;
+    detailRight.innerHTML = `<p>There was a problem fetching the movie details.<br>Please reload the page and try again.</p>`;
   }
 }
