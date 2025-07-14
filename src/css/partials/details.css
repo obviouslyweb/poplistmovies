@@ -25,3 +25,18 @@
 #detail-right {
   max-width: 50%;
 }
+
+/* Mobile view */
+@media (max-width: 600px) {
+  #movie-details {
+  padding: 15px;
+  display: block;
+  gap: 15px;
+}
+  #detail-right {
+  max-width: 100%;
+}
+  #detail-left {
+  max-width: 100%;
+}
+}
