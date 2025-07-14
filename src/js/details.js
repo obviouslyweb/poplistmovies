@@ -18,18 +18,20 @@ if (!imdbID) {
 
 async function loadMovieDetails(id) {
   try {
+    const title = document.getElementById("details-title");
+
     const res = await fetch(
       `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}&plot=full`
     );
     const data = await res.json();
 
     if (data.Response === 'False') {
-      titleHeading.textContent = 'Movie not found';
+      title.textContent = 'Movie not found';
       detailRight.innerHTML = `<p>${data.Error}</p>`;
       return;
     }
 
-    titleHeading.textContent = data.Title;
+    title.textContent = data.Title;
 
     detailLeft.innerHTML = `
       <img
