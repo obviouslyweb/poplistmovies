@@ -5,14 +5,23 @@
 }
 
 #detail-left {
-  max-width: 50%;
+  max-width: 25%;
+}
+
+#details-img {
+  width: 100%;
 }
 
 #details-title {
+  padding-top: 10px;
+  padding-left: 15px;
   font-size: 2rem;
 }
 
-#detail-right {
-  padding-top: 32px;
+#details-poster {
   max-width: 50%;
+}
+
+#detail-right {
+  max-width: 100%;
 }

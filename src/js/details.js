@@ -34,7 +34,7 @@ async function loadMovieDetails(id) {
     title.textContent = data.Title;
 
     detailLeft.innerHTML = `
-      <img
+      <img id="details-img"
         src="${data.Poster !== 'N/A' ? data.Poster : placeholderImage}"
         alt="Poster for ${data.Title}"
         onerror="this.onerror=null;this.src='${placeholderImage}';"
