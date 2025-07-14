@@ -19,11 +19,19 @@
   border-radius: 0 var(--radius) var(--radius) 0;
 }
 
+.search-section h2 {
+  font-size: 2rem;
+}
+
+#main-container  {
+  margin: 15px;
+}
+
 /* Section headings */
 .results-section h2,
 .watchlist-section h2 {
   margin-bottom: var(--spacing);
-  font-size: 1.5rem;
+  font-size: 2rem;
 }
 
 /* Grid of movie cards */
