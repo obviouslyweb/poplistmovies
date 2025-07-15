@@ -13,8 +13,6 @@ The most current build of Poplist is deployed at (https://poplistmovies.netlify.
 The remaining work to be done for this project includes the following:
 
 - [ ] Add contact form with validation to About page (Joshua)
-- [ ] Implement "Are you sure you wish to remove this from your watchlist" modal (Connor)
-- [X] Have Watchlist update on main page when movies are added through Search feature
 
 ## Team
 
