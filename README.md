@@ -14,7 +14,7 @@ The remaining work to be done for this project includes the following:
 
 - [ ] Add contact form with validation to About page (Joshua)
 - [ ] Implement "Are you sure you wish to remove this from your watchlist" modal (Connor)
-- [ ] Have Watchlist update on main page when movies are added through Search feature (Joshua)
+- [X] Have Watchlist update on main page when movies are added through Search feature
 
 ## Team
 
