@@ -41,7 +41,6 @@
   border: 1px solid #ccc;
   max-height: 200px;
   overflow-y: auto;
-  z-index: 10;
 }
 
 .suggestions li {

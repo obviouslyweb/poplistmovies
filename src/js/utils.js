@@ -6,6 +6,10 @@ export const placeholderImage = placeholderImg;
 
 export let watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
 
+let movieToRemoveID = null;
+let onConfirmCallback = null;
+
+
 export function saveWatchlist() {
   localStorage.setItem('watchlist', JSON.stringify(watchlist));
 }
@@ -80,6 +84,22 @@ export function createMovieCard(movie, watchlist, saveWatchlist, fetchMovieDetai
   return card;
 }
 
+function showModal(callback) {
+  const modal = document.querySelector(".modal-container");
+  modal.classList.remove("hide-modal");
+  modal.setAttribute("aria-hidden", "false");
+  onConfirmCallback = callback;
+}
+
+function hideModal() {
+  const modal = document.querySelector(".modal-container");
+  modal.classList.add("hide-modal");
+  modal.setAttribute("aria-hidden", "true");
+  movieToRemoveID = null;
+  onConfirmCallback = null;
+}
+
+
 // Renders the watchlist container with movie cards and extra controls
 export function renderWatchlist(watchlistContainer, watchlist, saveWatchlist) {
   if (!watchlistContainer) return;
@@ -122,13 +142,18 @@ export function renderWatchlist(watchlistContainer, watchlist, saveWatchlist) {
     `;
 
     card.querySelector('.remove-btn').addEventListener('click', () => {
-      const index = watchlist.findIndex((m) => m.imdbID === movie.imdbID);
-      if (index > -1) {
-        watchlist.splice(index, 1);
-        saveWatchlist();
-        renderWatchlist(watchlistContainer, watchlist, saveWatchlist);
-      }
+      let movieToRemoveID = movie.imdbID;
+      showModal(() => {
+        const index = watchlist.findIndex((m) => m.imdbID === movieToRemoveID);
+        if (index > -1) {
+          watchlist.splice(index, 1);
+          saveWatchlist();
+          renderWatchlist(watchlistContainer, watchlist, saveWatchlist);
+        }
+        hideModal();
+      });
     });
+
 
     card.querySelector('.rating-select').addEventListener('change', (e) => {
       movie.rating = e.target.value ? Number(e.target.value) : null;
@@ -162,5 +187,23 @@ export async function searchMovies(API_KEY, title, resultsContainer, watchlist, 
   }
 }
 
-// REMOVE FROM WATCHLIST
-// Modal Code
+document.addEventListener('DOMContentLoaded', () => {
+  const path = window.location.pathname;
+
+  if (path.endsWith('index.html') || path.endsWith('watchlist.html') || path === '/' || path.endsWith('/watchlist')) {
+    const confirmBtn = document.getElementById('modal-confirm');
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', () => {
+        if (onConfirmCallback) onConfirmCallback();
+      });
+    }
+
+    const cancelBtn = document.getElementById('modal-cancel');
+    if (cancelBtn) {
+      cancelBtn.addEventListener('click', () => {
+        hideModal();
+      });
+    }
+  }
+});
+
