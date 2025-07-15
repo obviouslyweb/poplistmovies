@@ -12,20 +12,9 @@ The most current build of Poplist is deployed at (https://poplistmovies.netlify.
 
 The remaining work to be done for this project includes the following:
 
-- [ ] Add "Add to Watchlist" & rating selection to film details page
-- [ ] Fill out About page
-- [ ] Detailed, validated form for finding films (add sorting by rating, R + NC/17 off by default)
-- [ ] CSS Animation (for finding films on main film search page)
-- [ ] Responsive design
-- [ ] Good user experience (UX) and accessibility
-- [X] Implement URL parameters for use with movie details
-- [X] Finish styling details page (URL parameters)
-- [X] Add default fallback image when no poster is available
-- [X] Drop-down menu (mobile)
-- [X] Add separate watchlist page that displays saved watchlist from localstorage
-- [X] Store watchlist through local storage for persistence
-- [X] Use of modules for organization
-- [X] Fetching data from an API or json file (using The Movie Database)
+- [ ] Add contact form with validation to About page (Joshua)
+- [ ] Implement "Are you sure you wish to remove this from your watchlist" modal (Connor)
+- [ ] Have Watchlist update on main page when movies are added through Search feature (Joshua)
 
 ## Team
 
