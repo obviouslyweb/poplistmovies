@@ -12,6 +12,7 @@ The most current build of Poplist is deployed at (https://poplistmovies.netlify.
 
 The remaining work to be done for this project includes the following:
 
+- [ ] Add "Add to Watchlist" & rating selection to film details page
 - [ ] Fill out About page
 - [ ] Detailed, validated form for finding films (add sorting by rating, R + NC/17 off by default)
 - [ ] CSS Animation (for finding films on main film search page)
