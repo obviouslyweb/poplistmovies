@@ -72,6 +72,8 @@ export function createMovieCard(movie, watchlist, saveWatchlist, fetchMovieDetai
       saveWatchlist();
       if (options.onWatchlistUpdated) options.onWatchlistUpdated();
       addBtn.textContent = '✓ In Watchlist';
+      let watchlistContainer = document.querySelector("#watchlist-container");
+      renderWatchlist(watchlistContainer, watchlist, saveWatchlist);
     }
   });
 
@@ -159,3 +161,6 @@ export async function searchMovies(API_KEY, title, resultsContainer, watchlist, 
     resultsContainer.textContent = 'Error fetching data.';
   }
 }
+
+// REMOVE FROM WATCHLIST
+// Modal Code

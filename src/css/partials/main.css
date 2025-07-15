@@ -109,6 +109,39 @@ main {
   flex: 1;
 }
 
+/* Confirm modal */
+
+.modal-container {
+  /* Takes it outside of normal flow */
+  position: absolute;
+  /* Puts at top left */
+  left: 0;
+  top: 0;
+  /* Set width & height at 100% of available viewable width/height (hence vw / vh) */
+  height: 100%;
+  width: 100%;
+  /* Put in front of all content */
+  z-index: 1;
+  /* Add transparency */
+  background-color: rgba(213, 159, 159, 0.7);
+  font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.modal-content {
+  /* Define a size for the content */
+  height: 150px;
+  width: 400px;
+  /* Center content on screen */
+  margin: 200px auto;
+  /* Give color, full opacity, and border */
+  background-color: rgb(255, 255, 255);
+  border: 5px black solid;
+  text-align: center;
+}
+
+.hide-modal {
+  display: none;
+}
 
 /* Mobile view */
 @media (max-width: 600px) {
