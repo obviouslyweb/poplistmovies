@@ -43,14 +43,12 @@ async function loadMovieDetails(id) {
     `;
 
     detailRight.innerHTML = `
-      <p><strong>Year:</strong> ${data.Year}</p>
-      <p><strong>Rated:</strong> ${data.Rated}</p>
-      <p><strong>Runtime:</strong> ${data.Runtime}</p>
+      <p>${data.Plot}</p>
+      <p><strong>${data.Year} | ${data.Rated} | ${data.Runtime}</strong></p>
       <p><strong>Genre:</strong> ${data.Genre}</p>
       <p><strong>Director:</strong> ${data.Director}</p>
       <p><strong>Writer:</strong> ${data.Writer}</p>
       <p><strong>Actors:</strong> ${data.Actors}</p>
-      <p><strong>Plot:</strong> ${data.Plot}</p>
       <p><strong>IMDb Rating:</strong> ${data.imdbRating}</p>
     `;
   } catch {

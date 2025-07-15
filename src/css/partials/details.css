@@ -1,3 +1,8 @@
+#all-details {
+  max-width: 80%;
+  margin: 0 auto;
+}
+
 #movie-details {
   padding: 15px;
   display: flex;
@@ -25,6 +30,7 @@
 
 #detail-right {
   max-width: 50%;
+  min-width: 25%;
 }
 
 /* Mobile view */
@@ -40,6 +46,10 @@
   }
 
   #detail-left {
+    max-width: 100%;
+  }
+
+  #all-details {
     max-width: 100%;
   }
 }
