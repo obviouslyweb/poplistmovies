@@ -20,6 +20,7 @@ async function loadMovieDetails(id) {
   try {
     const title = document.getElementById("details-title");
 
+    // Fetch data from API for movie details based on ID
     const res = await fetch(
       `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}&plot=full`
     );
