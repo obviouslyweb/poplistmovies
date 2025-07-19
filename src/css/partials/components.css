@@ -48,7 +48,8 @@
   transition: background 0.2s;
 }
 
-.suggestions li:hover {
+.suggestions li:hover,
+.suggestions li.selected {
   background: var(--color-accent);
   color: white;
 }
