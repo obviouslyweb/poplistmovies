@@ -14,7 +14,7 @@ export default defineConfig({
       input: {
         // Tell Rollup/Vite about both entry points
         main: fileURLToPath(new URL('./index.html', import.meta.url)),
-        about: fileURLToPath(new URL('./about.html', import.meta.url)),
+        about: fileURLToPath(new URL('./donate.html', import.meta.url)),
         watchlist: fileURLToPath(new URL('./watchlist.html', import.meta.url)),
         details: fileURLToPath(new URL('./details.html', import.meta.url))
       }
