@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Donate – Poplist</title>
+  <link rel="stylesheet" href="/src/css/style.css" />
+  <script type="module" src="/src/js/header.js" defer></script>
+  <script type="module" src="/src/js/donate.js" defer></script>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div id="header-flex">
+        <a href="/" class="site-title-link">
+          <img id="logo" src="/images/poplistlogo-white.png" alt="Poplist logo">
+          <h1 class="site-title">Poplist</h1>
+        </a>
+      <button id="menuButton">Menu</button>
+      <nav class="site-nav">
+        <a href="/">Search</a>
+        <a href="watchlist">Watchlist</a>
+        <a href="donate" class="active">Donate</a>
+      </nav>
+      </div>
+    </header>
+    <main id="main">
+      <div id="main-container">
+        <section class="donate-section">
+          <h2>Support Poplist</h2>
+          <p class="donate-intro">Help us keep Poplist running and improve our services. Your donation makes a difference!</p>
+          
+          <form id="donation-form" class="donation-form">
+            <!-- Donation Amount -->
+            <fieldset class="donation-amount">
+              <legend>Donation Amount</legend>
+              <div class="amount-options">
+                <label class="amount-option">
+                  <input type="radio" name="amount" value="10" />
+                  <span>$10</span>
+                </label>
+                <label class="amount-option">
+                  <input type="radio" name="amount" value="25" />
+                  <span>$25</span>
+                </label>
+                <label class="amount-option">
+                  <input type="radio" name="amount" value="50" />
+                  <span>$50</span>
+                </label>
+                <label class="amount-option">
+                  <input type="radio" name="amount" value="100" />
+                  <span>$100</span>
+                </label>
+                <label class="amount-option custom">
+                  <input type="radio" name="amount" value="custom" />
+                  <span>Custom</span>
+                </label>
+              </div>
+              <div class="custom-amount">
+                <label for="custom-amount-input">Custom Amount ($)</label>
+                <input type="number" id="custom-amount-input" min="1" step="0.01" placeholder="Enter amount" />
+              </div>
+            </fieldset>
+
+            <!-- Personal Information -->
+            <fieldset class="personal-info">
+              <legend>Personal Information</legend>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="first-name">First Name *</label>
+                  <input type="text" id="first-name" name="firstName" required />
+                </div>
+                <div class="form-group">
+                  <label for="last-name">Last Name *</label>
+                  <input type="text" id="last-name" name="lastName" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address *</label>
+                <input type="email" id="email" name="email" required />
+              </div>
+              <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="(555) 123-4567" />
+              </div>
+            </fieldset>
+
+            <!-- Billing Address -->
+            <fieldset class="billing-address">
+              <legend>Billing Address</legend>
+              <div class="form-group">
+                <label for="address">Street Address *</label>
+                <input type="text" id="address" name="address" required />
+              </div>
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="city">City *</label>
+                  <input type="text" id="city" name="city" required />
+                </div>
+                <div class="form-group">
+                  <label for="state">State/Province *</label>
+                  <input type="text" id="state" name="state" required />
+                </div>
+                <div class="form-group">
+                  <label for="zip">ZIP/Postal Code *</label>
+                  <input type="text" id="zip" name="zip" required />
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="country">Country *</label>
+                <select id="country" name="country" required>
+                  <option value="">Select Country</option>
+                  <option value="US">United States</option>
+                  <option value="CA">Canada</option>
+                  <option value="GB">United Kingdom</option>
+                  <option value="AU">Australia</option>
+                  <option value="DE">Germany</option>
+                  <option value="FR">France</option>
+                  <option value="ES">Spain</option>
+                  <option value="IT">Italy</option>
+                  <option value="JP">Japan</option>
+                  <option value="other">Other</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <!-- Payment Method -->
+            <fieldset class="payment-method">
+              <legend>Payment Method</legend>
+              <div class="payment-options">
+                <label class="payment-option">
+                  <input type="radio" name="paymentMethod" value="credit-card" checked />
+                  <span>Credit/Debit Card</span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="paymentMethod" value="paypal" />
+                  <span>PayPal</span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="paymentMethod" value="apple-pay" />
+                  <span>Apple Pay</span>
+                </label>
+                <label class="payment-option">
+                  <input type="radio" name="paymentMethod" value="google-pay" />
+                  <span>Google Pay</span>
+                </label>
+              </div>
+
+              <!-- Credit Card Details -->
+              <div id="credit-card-details" class="credit-card-details">
+                <div class="form-group">
+                  <label for="card-number">Card Number *</label>
+                  <input type="text" id="card-number" name="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19" />
+                </div>
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="expiry-date">Expiry Date *</label>
+                    <input type="text" id="expiry-date" name="expiryDate" placeholder="MM/YY" maxlength="5" />
+                  </div>
+                  <div class="form-group">
+                    <label for="cvv">CVV *</label>
+                    <input type="text" id="cvv" name="cvv" placeholder="123" maxlength="4" />
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="cardholder-name">Cardholder Name *</label>
+                  <input type="text" id="cardholder-name" name="cardholderName" />
+                </div>
+              </div>
+
+              <!-- Alternative Payment Details -->
+              <div id="alternative-payment" class="alternative-payment">
+                <p>You will be redirected to complete your payment securely.</p>
+              </div>
+            </fieldset>
+
+            <!-- Additional Options -->
+            <fieldset class="additional-options">
+              <legend>Additional Options</legend>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="monthly-donation" name="monthlyDonation" />
+                  <span>Make this a monthly recurring donation</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label class="checkbox-label">
+                  <input type="checkbox" id="newsletter" name="newsletter" />
+                  <span>Subscribe to our newsletter for updates</span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label for="message">Message (Optional)</label>
+                <textarea id="message" name="message" rows="3" placeholder="Leave us a message..."></textarea>
+              </div>
+            </fieldset>
+
+            <div class="form-actions">
+              <button type="submit" class="donate-button">Complete Donation</button>
+              <button type="button" class="cancel-button" onclick="window.location.href='/'">Cancel</button>
+            </div>
+          </form>
+        </section>
+      </div>
+
+      <!-- Success Modal -->
+      <div id="success-modal" class="modal-container hide-modal" aria-hidden="true">
+        <div class="modal-content success-modal">
+          <div class="success-icon">✓</div>
+          <h3>Thank You for Your Donation!</h3>
+          <p>Your generous contribution of <span id="donation-amount-display"></span> has been successfully processed.</p>
+          <p>You will receive a confirmation email shortly at <span id="donor-email-display"></span>.</p>
+          <p>Your support helps us continue to provide great movie recommendations!</p>
+          <button id="success-close" class="primary-button">Close</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <p>© Poplist 2025. All rights reserved.</p>
+    </footer>
+  </div>
+</body>
+</html>
